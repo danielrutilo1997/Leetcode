@@ -47,6 +47,48 @@ public:
     std::string mergeAlternately(std::string word1, std::string word2) {
         // YOUR SOLUTION HERE
 
+        int size1, size2; 
+        std::string newString; 
+
+        size1 = word1.size();   // store length for comparison
+        size2 = word2.size(); 
+
+        if(size1 == size2){
+            for(int i = 0; i < size1; i++){
+
+                newString.push_back(word1[i]);
+                newString.push_back(word2[i]);
+
+            }
+        }else if(size1 > size2){ // word 1 is bigger
+            int i = 0;
+            while(i < size2){
+
+                newString.push_back(word1[i]);
+                newString.push_back(word2[i]);
+                i++;                
+            }
+            while (i < size1){
+
+                newString.push_back(word1[i]);
+                i++;
+
+            }
+        }else { // word 2 is bigger
+            int i = 0;
+            while(i < size1){
+                newString.push_back(word1[i]);
+                newString.push_back(word2[i]);
+                i++;
+            }
+            while(i < size2){
+                newString.push_back(word2[i]);
+                i++;
+            }
+
+        }
+
+        return newString;
     }
 };
 
